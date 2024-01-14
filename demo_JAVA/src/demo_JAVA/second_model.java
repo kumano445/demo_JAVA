@@ -3,7 +3,6 @@ package demo_JAVA;
 public class second_model {
 
 	public static void main(String[] args) {
-		// TODO 自動生成されたメソッド・スタブ
 		int mylnt;
 		mylnt = 20;
 		double myDouble = mylnt;
@@ -18,12 +17,16 @@ public class second_model {
 		boolean myBoolean;
 		myBoolean = true;
 		myBoolean = false;
-		
 		if (myBoolean) {
 			System.out.println("正です");
 		}else{
 			System.out.println("負です");
 		}
+		
+		String myString = "武隈";
+		System.out.println(myString);
+		
+		
 	}
 
 }
