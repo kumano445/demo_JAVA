@@ -49,9 +49,10 @@ public class fouth_Branchprocessing {
 	    int num1;
 	    num1 = 5;
 	    int num2;
-	    num2 = 2;
-	    String result = num1 > num2 ? "num1が大きい":"num2が大きい";
+	    num2 = 0;
+	    String result = (num1 > num2) ? "num1が大きい":"num2が大きい";
 	    System.out.println(result);
+	    
 	}
 
 }
