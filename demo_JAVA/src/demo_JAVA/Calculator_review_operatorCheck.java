@@ -4,10 +4,10 @@ public class Calculator_review_operatorCheck {
 
 	public static void main(String[] args) {
 		// TODO 自動生成されたメソッド・スタブ
-		   int val1 = 0;  /* 最初の数字 */
-		    int val2 = 0;  /* 次の数字 */
-		    String ope;    /* 演算子 */
-		    int kekka;     /* 結果を格納 */
+		   int val1 = 0;
+		    int val2 = 0;
+		    String ope;  
+		    int kekka;   
 
 		    if (args.length != 3){
 		      errDisp("引数は3個入力して下さい");
@@ -22,7 +22,7 @@ public class Calculator_review_operatorCheck {
 
 		    ope = args[1];
 
-		    String opeStr[] = {"kake", "waru", "tasu", "hiku"};
+		    String opeStr[] = {"×", "/", "+", "-"};
 		    boolean errFlag = true;
 
 		    for (int i = 0 ; i < 4 ; i++){
@@ -32,14 +32,14 @@ public class Calculator_review_operatorCheck {
 		    }
 
 		    if (errFlag == true){
-		      errDisp("演算子は kake waru tasu hiku の4つです");
+		      errDisp("演算子は × waru tasu hiku の4つです");
 		    }
 
-		    if (ope.equals("kake")){
+		    if (ope.equals("×")){
 		      kekka = val1 * val2;
-		    }else if (ope.equals("tasu")){
+		    }else if(ope.equals("+")){
 		      kekka = val1 + val2;
-		    }else if (ope.equals("hiku")){
+		    }else if (ope.equals("-")){
 		      kekka = val1 - val2;
 		    }else{
 		      if (val2 == 0){
