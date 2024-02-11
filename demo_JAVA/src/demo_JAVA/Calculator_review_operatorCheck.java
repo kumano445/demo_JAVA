@@ -1,61 +1,50 @@
 package demo_JAVA;
-
+import java.util.Scanner;
 public class Calculator_review_operatorCheck {
 
 	public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
 		// TODO 自動生成されたメソッド・スタブ
-		   int val1 = 0;
-		    int val2 = 0;
-		    String ope;  
-		    int kekka;   
+        do {
+            // 最初の数字の入力
+            System.out.print("最初の数字を入力してください: ");
+            int num1 = scanner.nextInt();
 
-		    if (args.length != 3){
-		      errDisp("引数は3個入力して下さい");
-		    }
+            // 演算子の入力
+            System.out.print("四則演算を入力してください (+, -, *, /): ");
+            char operator = scanner.next().charAt(0);
 
-		    try{
-		      val1 = Integer.parseInt(args[0]);
-		      val2 = Integer.parseInt(args[2]);
-		    }catch(NumberFormatException e){
-		      errDisp("数値でない値が入力されています");
-		    }
+            // 次の数字の入力
+            System.out.print("次の数字を入力してください: ");
+            int num2 = scanner.nextInt();
 
-		    ope = args[1];
+            int result = 0;
+            switch(operator) {
+                // 各演算子に応じた計算
+                case '+': result = num1 + num2; break;
+                case '-': result = num1 - num2; break;
+                case '*': result = num1 * num2; break;
+                case '/':
+                    if (num2 != 0) {
+                        result = num1 / num2;
+                    } else {
+                        System.out.println("0で割ることはできません。");
+                        continue; // ゼロで割る場合はループを継続
+                    }
+                    break;
+                default:
+                    System.out.println("無効な演算子です。");
+                    continue; // 無効な演算子の場合はループを継続
+            }
+            // 結果の表示
+            System.out.println("結果: " + result);
+            
+            // 続行するかどうかを尋ねる
+            System.out.print("続行しますか？ (続行: 1, 終了: 0): ");
+        } while (scanner.nextInt() != 0); // 0を入力するまで続行
 
-		    String opeStr[] = {"×", "/", "+", "-"};
-		    boolean errFlag = true;
-
-		    for (int i = 0 ; i < 4 ; i++){
-		      if (ope.equals(opeStr[i])){
-		        errFlag = false;
-		      }
-		    }
-
-		    if (errFlag == true){
-		      errDisp("演算子は × waru tasu hiku の4つです");
-		    }
-
-		    if (ope.equals("×")){
-		      kekka = val1 * val2;
-		    }else if(ope.equals("+")){
-		      kekka = val1 + val2;
-		    }else if (ope.equals("-")){
-		      kekka = val1 - val2;
-		    }else{
-		      if (val2 == 0){
-		        errDisp("0 で割ろうとしました");
-		      }
-
-		      kekka = val1 / val2;
-		    }
-
-		    System.out.println("入力された式は " + val1 + " " + ope + " " + val2 + " です");
-		    System.out.println("計算結果は " + kekka + " です");
-		  }
-
-		  private static void errDisp(String errStr){
-		    System.out.println("Usage : java dentaku 数値 演算子 数値");
-		    System.out.println(errStr);
-		    System.exit(0);  /* プログラムを終了する */
-		  }
-		}
+        scanner.close(); // スキャナーを閉じる
+        System.out.println("プログラムを終了します。");
+    }
+}
